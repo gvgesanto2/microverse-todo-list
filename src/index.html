@@ -15,7 +15,7 @@
   <body class="l-container">
     <div id="todo" class="o-todo">
       <header class="o-todo__header u-horizontal-flex u-py--sm">
-        <input class="a-data-input" type="text" />
+        <h2 class="o-todo__title">To-Do List Demo</h2>
         <button class="m-icon-btn m-icon-btn--darker">
           <svg class="a-icon--sm">
             <use xlink:href="#sprite_refresh-ccw"></use>
@@ -23,41 +23,18 @@
         </button>
       </header>
       <form action="#" class="u-horizontal-flex u-py--sm">
-        <input placeholder="Add to your list..." class="a-data-input a-data-input--italic" type="text" />
+        <input
+          placeholder="Add to your list..."
+          class="a-data-input a-data-input--italic"
+          type="text"
+        />
         <button type="submit" class="m-icon-btn">
           <svg class="a-icon--xsm">
             <use xlink:href="#sprite_corner-down-left"></use>
           </svg>
         </button>
       </form>
-      <ul class="o-todo__list">
-        <li class="u-horizontal-flex u-pl--sm u-pr--xsm">
-          <button class="m-icon-btn">
-            <svg class="a-icon--sm">
-              <use xlink:href="#sprite_square"></use>
-            </svg>
-          </button>
-          <textarea maxlength="255" type="text" class="a-data-input a-data-input--textarea"></textarea>
-          <button class="m-icon-btn m-icon-btn--move">
-            <svg class="a-icon--sm">
-              <use xlink:href="#sprite_more-vertical"></use>
-            </svg>
-          </button>
-        </li>
-        <li class="u-horizontal-flex u-pl--sm u-pr--xsm u-is-editing">
-          <button class="m-icon-btn">
-            <svg class="a-icon--sm">
-              <use xlink:href="#sprite_square"></use>
-            </svg>
-          </button>
-          <textarea maxlength="255" type="text" class="a-data-input a-data-input--textarea"></textarea>
-          <button class="m-icon-btn m-icon-btn--move">
-            <svg class="a-icon--sm">
-              <use xlink:href="#sprite_more-vertical"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
+      <div id="tasks-list-container"></div>
       <footer class="o-todo__footer u-p--sm">
         <button class="a-link-btn">Clear all completed</button>
       </footer>

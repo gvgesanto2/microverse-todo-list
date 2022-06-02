@@ -12,6 +12,12 @@
   }
 
   &__header {
+    padding: 1.5rem 0;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 1.5rem;
     font-weight: 500;
     color: $color-grey-dark-1;
   }
