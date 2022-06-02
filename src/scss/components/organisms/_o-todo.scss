@@ -1,0 +1,30 @@
+.o-todo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
+  background-color: $white;
+  box-shadow: $box-shadow;
+
+  & > *:not(:last-child),
+  &__list > li:not(:last-child) {
+    border-bottom: $separator-line;
+  }
+
+  &__header {
+    padding: 1.5rem 0;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $color-grey-dark-1;
+  }
+
+  &__footer {
+    @include centerWithFlex;
+
+    background-color: $color-grey-light-1;
+  }
+}
