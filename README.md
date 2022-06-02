@@ -1,25 +1,25 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# World Poker Forum 2022
+# To-Do List
 
-> This is the website of an event called World Poker Forum, where people go to learn how to play poker with the best professional poker players in the world.
+> This is a to-do list application.
 
 
 ## Built With
 
-- HTML5 & CSS3
-- Sass
-- JavaScript
-- Atomic Design methodology
-- BEM methodology
+- **Languages:**
+  - HTML5 & CSS3
+  - JavaScript
 
-## Live Demo
+- **Preprocessors:**
+  - Sass
 
-Click on this link to see this project live demo: [Live Demo Link](https://gvgesanto2.github.io/microverse-wp-forum/)
+- **Technologies:**
+  - Webpack
 
-## Documentation Video
-
-Click on this link to see the documentation video: [Doc Video Link](https://www.loom.com/share/29b84d6f292c4f19a880aa54456dfc80)
+- **Conventions and Methodologies:**
+  - Atomic Design
+  - BEM
 
 ## Getting Started
 
@@ -36,15 +36,21 @@ Download the code from this repository.
 
 ### Install
 
-Install the project dependencies using this command on the root project directory:
+1- Install the project dependencies using this command on the root project directory:
 
 ```console
 $ npm install
 ```
 
+2- Then, run this command to build the application's code:
+
+```console
+$ npm run build
+```
+
 ### Usage
 
-Open the index.html file in your Web Browser.
+Open the ``index.html`` file inside the ``dist/`` folder in your Web Browser.
 
 ## Authors
 
@@ -53,10 +59,6 @@ Open the index.html file in your Web Browser.
 - GitHub: [@gvgesanto2](https://github.com/gvgesanto2)
 - Twitter: [@GabrielSanto997](https://twitter.com/GabrielSanto997)
 - LinkedIn: [Gabriel Santo](https://linkedin.com/in/gabriel-santo-5882a71b2/)
-
-## Website Design
-
-The original design idea of this project was made by [Cindy Shin in Behance](https://www.behance.net/adagio07).
 
 ## 🤝 Contributing
 
