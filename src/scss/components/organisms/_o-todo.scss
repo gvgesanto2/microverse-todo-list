@@ -24,6 +24,7 @@
 
   &__footer {
     @include centerWithFlex;
+
     background-color: $color-grey-light-1;
   }
 }
