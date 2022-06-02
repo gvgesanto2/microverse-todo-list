@@ -1,0 +1,12 @@
+.u-is-editing {
+  background-color: $color-yellow;
+}
+
+.u-horizontal-flex {
+  display: flex;
+  align-items: center;
+
+  & > *:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}

@@ -1,0 +1,30 @@
+.a-data-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 2rem;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  padding: 1.5rem 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--italic {
+    font-style: italic;
+  }
+
+  &--textarea {
+    box-sizing: content-box;
+    height: 2rem;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

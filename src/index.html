@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <title>To-Do List</title>
+  </head>
+  <body class="l-container">
+    <div id="todo" class="o-todo">
+      <header class="o-todo__header u-horizontal-flex u-py--sm">
+        <input class="a-data-input" type="text" />
+        <button class="m-icon-btn m-icon-btn--darker">
+          <svg class="a-icon--sm">
+            <use xlink:href="#sprite_refresh-ccw"></use>
+          </svg>
+        </button>
+      </header>
+      <form action="#" class="u-horizontal-flex u-py--sm">
+        <input placeholder="Add to your list..." class="a-data-input a-data-input--italic" type="text" />
+        <button type="submit" class="m-icon-btn">
+          <svg class="a-icon--xsm">
+            <use xlink:href="#sprite_corner-down-left"></use>
+          </svg>
+        </button>
+      </form>
+      <ul class="o-todo__list">
+        <li class="u-horizontal-flex u-pl--sm u-pr--xsm">
+          <button class="m-icon-btn">
+            <svg class="a-icon--sm">
+              <use xlink:href="#sprite_square"></use>
+            </svg>
+          </button>
+          <textarea maxlength="255" type="text" class="a-data-input a-data-input--textarea"></textarea>
+          <button class="m-icon-btn m-icon-btn--move">
+            <svg class="a-icon--sm">
+              <use xlink:href="#sprite_more-vertical"></use>
+            </svg>
+          </button>
+        </li>
+        <li class="u-horizontal-flex u-pl--sm u-pr--xsm u-is-editing">
+          <button class="m-icon-btn">
+            <svg class="a-icon--sm">
+              <use xlink:href="#sprite_square"></use>
+            </svg>
+          </button>
+          <textarea maxlength="255" type="text" class="a-data-input a-data-input--textarea"></textarea>
+          <button class="m-icon-btn m-icon-btn--move">
+            <svg class="a-icon--sm">
+              <use xlink:href="#sprite_more-vertical"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <footer class="o-todo__footer u-p--sm">
+        <button class="a-link-btn">Clear all completed</button>
+      </footer>
+    </div>
+  </body>
+</html>

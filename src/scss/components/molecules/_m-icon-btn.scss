@@ -1,0 +1,17 @@
+.m-icon-btn {
+  color: $black;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &--darker {
+    opacity: 0.5;
+  }
+
+  &--move {
+    cursor: move;
+  }
+}

@@ -1,0 +1,12 @@
+.a-link-btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  opacity: 0.5;
+  padding: 0.1rem 0.6rem;
+  transition: all 0.2s;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+}
