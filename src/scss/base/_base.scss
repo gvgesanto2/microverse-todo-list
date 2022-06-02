@@ -2,15 +2,15 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 
-  // screen-xsm = 22.5em = 360px
-  // @include respond-to('min', 'screen-xsm') {
-  //   font-size: 62.5%;
-  // }
+  // screen-hg = 100em = 1600px
+  @include respond-to('min', 'screen-hg') {
+    font-size: 75%;
+  }
 
-  // screen-hg = 160em = 2560px
-  // @include respond-to('min', 'screen-hg') {
-  //   font-size: 100%;
-  // }
+  // screen-xhg = 160em = 2560px
+  @include respond-to('min', 'screen-xhg') {
+    font-size: 100%;
+  }
 }
 
 body {

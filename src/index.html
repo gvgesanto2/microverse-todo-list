@@ -22,11 +22,14 @@
           </svg>
         </button>
       </header>
-      <form action="#" class="u-horizontal-flex u-py--sm">
+      <form id="add-task-form" action="#" class="u-horizontal-flex u-py--sm">
         <input
           placeholder="Add to your list..."
           class="a-data-input a-data-input--italic"
           type="text"
+          name="description"
+          aria-label="Enter your task description"
+          required
         />
         <button type="submit" class="m-icon-btn">
           <svg class="a-icon--xsm">

@@ -1,29 +1,21 @@
+import TasksListController from './controllers/TasksListController.js';
+import AddTaskFormController from './controllers/AddTaskFormController.js';
+
 import '../scss/main.scss';
 import '../assets/images/icons/sprite.svg';
-import TasksListController from './controllers/TasksListController.js';
 
 const TASKS_LIST_CONTAINER_ID = 'tasks-list-container';
-
-const initialTasks = [
-  {
-    id: 1,
-    description: 'Taks 1',
-    isCompleted: false,
-  },
-  {
-    id: 2,
-    description: 'Taks 2',
-    isCompleted: false,
-  },
-  {
-    id: 3,
-    description: 'Taks 3',
-    isCompleted: false,
-  },
-];
+const TASKS_LOCAL_STORAGE_KEY = 'tasks';
+const ADD_TASK_FORM_ID = 'add-task-form';
 
 const tasksListController = new TasksListController(
   TASKS_LIST_CONTAINER_ID,
-  initialTasks,
+  TASKS_LOCAL_STORAGE_KEY,
 );
 tasksListController.build();
+
+const addTaskFormController = new AddTaskFormController(
+  ADD_TASK_FORM_ID,
+  tasksListController,
+);
+addTaskFormController.init();

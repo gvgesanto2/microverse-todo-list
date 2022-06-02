@@ -10,7 +10,7 @@ export default class TasksList {
     return this.tasks;
   }
 
-  createTask({ description, isCompleted }) {
+  createAndAddTask({ description, isCompleted }) {
     const newTask = new Task(
       genNewIdForElem(this.tasks),
       description,

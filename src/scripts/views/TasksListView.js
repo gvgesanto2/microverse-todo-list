@@ -27,4 +27,9 @@ export default class TasksListView extends View {
 
     return tasksList;
   };
+
+  renderNewTask = (newTask) => {
+    const taskItemView = new TaskItemView(newTask);
+    taskItemView.render(this.id);
+  }
 }
