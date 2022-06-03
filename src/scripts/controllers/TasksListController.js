@@ -7,12 +7,22 @@ export default class TasksListController {
     this.tasksListContainerId = tasksListContainerId;
     this.storageService = new StorageService(tasksStorageKey);
     this.tasksList = new TasksList(this.storageService.getData());
-    this.tasksListView = new TasksListView(this.tasksList.getTasks);
+
+    const eventHandlers = {
+      handleToggleBtn: this.handleToggleIsCompleted,
+      handleEditTask: this.handleEditTask,
+      handleRemoveTask: () => { console.log('handleRemoveTask'); },
+    };
+    this.tasksListView = new TasksListView(this.tasksList.getTasks, eventHandlers);
   }
 
   build = () => {
     this.tasksListView.render(this.tasksListContainerId);
   };
+
+  updateStorage = () => {
+    this.storageService.storeData(this.tasksList.getTasks);
+  }
 
   addNewTask = (description) => {
     const newTask = this.tasksList.createAndAddTask({
@@ -20,6 +30,18 @@ export default class TasksListController {
       isCompleted: false,
     });
     this.tasksListView.renderNewTask(newTask);
-    this.storageService.storeData(this.tasksList.getTasks);
+    this.updateStorage();
   };
+
+  handleToggleIsCompleted = (taskId) => {
+    const newIsCompleted = this.tasksList.toggleTaskIsCompleted(taskId);
+    this.tasksListView.updateTaskIsCompleted(taskId, newIsCompleted);
+    this.updateStorage();
+  };
+
+  handleEditTask = (taskId, newDescription) => {
+    this.tasksList.setTaskDescription(taskId, newDescription);
+    this.tasksListView.handleTaskEditingState(taskId);
+    this.updateStorage();
+  }
 }

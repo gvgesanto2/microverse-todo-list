@@ -10,6 +10,20 @@ export default class TasksList {
     return this.tasks;
   }
 
+  findTaskById = (taskId) => this.tasks.find((task) => task.id === taskId);
+
+  toggleTaskIsCompleted = (taskId) => {
+    const taskToToggle = this.findTaskById(taskId);
+    // console.log(taskToToggle);
+    // taskToToggle.toggleIsCompleted();
+    taskToToggle.isCompleted = !taskToToggle.isCompleted;
+    return taskToToggle.isCompleted;
+  };
+
+  setTaskDescription = (taskId, newDescription) => {
+    this.findTaskById(taskId).description = newDescription;
+  }
+
   createAndAddTask({ description, isCompleted }) {
     const newTask = new Task(
       genNewIdForElem(this.tasks),

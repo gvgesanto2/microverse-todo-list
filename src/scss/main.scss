@@ -15,6 +15,7 @@
 @import 'components/molecules/m-icon-btn';
 
 // Import the organism components
+@import 'components/organisms/o-task';
 @import 'components/organisms/o-todo';
 
 // Import the layout classes
@@ -23,3 +24,4 @@
 // Import the utility classes
 @import 'utilities/global';
 @import 'utilities/spacing';
+@import 'utilities/visibility';
