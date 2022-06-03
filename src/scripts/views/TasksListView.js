@@ -66,10 +66,13 @@ export default class TasksListView extends View {
 
     if (taskElem.classList.contains(TaskItemView.EDIT_STATE_CLASS)) {
       taskElem.classList.remove(TaskItemView.EDIT_STATE_CLASS);
-      removeBtnElem.classList.add(TaskItemView.HIDDEN_STATE_CLASS);
-      if (moveBtnElem.classList.contains(TaskItemView.HIDDEN_STATE_CLASS)) {
-        moveBtnElem.classList.remove(TaskItemView.HIDDEN_STATE_CLASS);
-      }
+
+      setTimeout(() => {
+        removeBtnElem.classList.add(TaskItemView.HIDDEN_STATE_CLASS);
+        if (moveBtnElem.classList.contains(TaskItemView.HIDDEN_STATE_CLASS)) {
+          moveBtnElem.classList.remove(TaskItemView.HIDDEN_STATE_CLASS);
+        }
+      }, 100);
     } else {
       taskElem.classList.add(TaskItemView.EDIT_STATE_CLASS);
       if (removeBtnElem.classList.contains(TaskItemView.HIDDEN_STATE_CLASS)) {
@@ -77,5 +80,10 @@ export default class TasksListView extends View {
       }
       moveBtnElem.classList.add(TaskItemView.HIDDEN_STATE_CLASS);
     }
+  };
+
+  removeTaskFromScreen = (taskId) => {
+    const taskElem = document.getElementById(`${TaskItemView.BASE_ID}-${taskId}`);
+    taskElem?.remove();
   };
 }

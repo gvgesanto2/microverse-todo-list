@@ -14,8 +14,6 @@ export default class TasksList {
 
   toggleTaskIsCompleted = (taskId) => {
     const taskToToggle = this.findTaskById(taskId);
-    // console.log(taskToToggle);
-    // taskToToggle.toggleIsCompleted();
     taskToToggle.isCompleted = !taskToToggle.isCompleted;
     return taskToToggle.isCompleted;
   };

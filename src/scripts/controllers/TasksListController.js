@@ -11,7 +11,7 @@ export default class TasksListController {
     const eventHandlers = {
       handleToggleBtn: this.handleToggleIsCompleted,
       handleEditTask: this.handleEditTask,
-      handleRemoveTask: () => { console.log('handleRemoveTask'); },
+      handleRemoveTask: this.handleRemoveTask,
     };
     this.tasksListView = new TasksListView(this.tasksList.getTasks, eventHandlers);
   }
@@ -40,8 +40,18 @@ export default class TasksListController {
   };
 
   handleEditTask = (taskId, newDescription) => {
-    this.tasksList.setTaskDescription(taskId, newDescription);
-    this.tasksListView.handleTaskEditingState(taskId);
+    if (newDescription) {
+      this.tasksList.setTaskDescription(taskId, newDescription);
+      this.tasksListView.handleTaskEditingState(taskId);
+      this.updateStorage();
+    } else {
+      this.handleRemoveTask(taskId);
+    }
+  }
+
+  handleRemoveTask = (taskId) => {
+    this.tasksList.removeTaskById(taskId);
+    this.tasksListView.removeTaskFromScreen(taskId);
     this.updateStorage();
   }
 }

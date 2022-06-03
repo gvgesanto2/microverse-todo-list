@@ -87,6 +87,12 @@ export default class TaskItemView extends View {
       },
     );
 
+    // Creates a 'div' HTML element for the Task Button Group
+    const taskBtnGroup = createHtmlElem({
+      tag: 'div',
+      className: 'o-task__btn-group',
+    });
+
     // Creates a 'button' HTML element for the Move Button
     const moveBtn = createHtmlElem({
       tag: 'button',
@@ -115,10 +121,12 @@ export default class TaskItemView extends View {
     });
 
     // Appends all the Task Item's children
+    taskBtnGroup.appendChild(moveBtn);
+    taskBtnGroup.appendChild(removeBtn);
+
     taskItem.appendChild(toggleBtn);
     taskItem.appendChild(taskDescription);
-    taskItem.appendChild(removeBtn);
-    taskItem.appendChild(moveBtn);
+    taskItem.appendChild(taskBtnGroup);
 
     return taskItem;
   };
