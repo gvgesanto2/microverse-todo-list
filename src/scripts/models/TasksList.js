@@ -1,4 +1,4 @@
-import { genNewIdForElem } from '../utils/id.utils.js';
+import { genNewIdForElem, genNewIndexForElem } from '../utils/id.utils.js';
 import Task from './Task.js';
 
 export default class TasksList {
@@ -20,10 +20,11 @@ export default class TasksList {
 
   setTaskDescription = (taskId, newDescription) => {
     this.findTaskById(taskId).description = newDescription;
-  }
+  };
 
   createAndAddTask({ description, isCompleted }) {
     const newTask = new Task(
+      genNewIndexForElem(this.tasks),
       genNewIdForElem(this.tasks),
       description,
       isCompleted,
@@ -34,5 +35,11 @@ export default class TasksList {
 
   removeTaskById(taskId) {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
+  }
+
+  updateTasksIndexes() {
+    this.tasks.forEach((task, index) => {
+      task.index = index + 1;
+    });
   }
 }

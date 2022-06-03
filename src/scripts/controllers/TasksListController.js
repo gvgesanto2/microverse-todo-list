@@ -50,8 +50,9 @@ export default class TasksListController {
   }
 
   handleRemoveTask = (taskId) => {
-    this.tasksList.removeTaskById(taskId);
     this.tasksListView.removeTaskFromScreen(taskId);
+    this.tasksList.removeTaskById(taskId);
+    this.tasksList.updateTasksIndexes();
     this.updateStorage();
   }
 }
