@@ -62,7 +62,6 @@ export default class TasksListController {
 
   handleClearCompletedTasks = () => {
     const completedTasksRemoved = this.tasksList.removeCompletedTasks();
-    console.log(completedTasksRemoved);
     completedTasksRemoved.forEach((task) => {
       this.tasksListView.removeTaskFromScreen(task.id);
     });
