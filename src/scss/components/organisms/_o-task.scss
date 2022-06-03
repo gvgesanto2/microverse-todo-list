@@ -1,0 +1,14 @@
+.o-task {
+  &--active {
+    text-decoration: line-through;
+
+    .o-task__toggle-btn {
+      color: $color-primary;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+}

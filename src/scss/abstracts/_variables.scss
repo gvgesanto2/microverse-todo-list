@@ -16,26 +16,10 @@ $separator-line: 1px solid rgba(0, 0, 0, 0.08);
 
 // Breakpoints
 $breakpoints: (
-  // 15.625em = 250px
-  'screen-xxsm': 15.625em,
-  // 22.5em = 360px
-  'screen-xsm': 22.5em,
-  // 28.75em = 460px
-  'screen-sm': 28.75em,
-  // 42.5em = 680px
-  'screen-md': 42.5em,
-  // 64em = 1024px
-  'screen-lg': 64em,
-  // 90em = 1440px
-  'screen-xlg': 90em,
   // 100em = 1600px
-  'screen-xxlg': 100em,
+  'screen-hg': 100em,
   // 160em = 2560px
-  'screen-hg': 160em,
-  // 93.75em = 1500px
-  'screen-xhg': 93.75em,
-  // 100em = 1600px
-  'screen-xxhg': 100em
+  'screen-xhg': 160em
 );
 
 $bp-types: (

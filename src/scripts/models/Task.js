@@ -1,7 +1,12 @@
 export default class Task {
-  constructor(id, description, isCompleted) {
-    this.id = id;
+  constructor(index, id, description, isCompleted) {
+    this.index = index;
     this.description = description;
     this.isCompleted = isCompleted;
+    this.id = id;
+  }
+
+  toggleIsCompleted() {
+    this.isCompleted = !this.isCompleted;
   }
 }
