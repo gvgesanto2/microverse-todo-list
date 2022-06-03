@@ -1,6 +1,6 @@
 import createHtmlElem from '../utils/createElem.utils.js';
 import TaskItemView from './TaskItemView.js';
-import View from './View.js';
+import View from './base/View.js';
 
 const TASKS_LIST_ID = 'tasks-list';
 
@@ -72,7 +72,7 @@ export default class TasksListView extends View {
         if (moveBtnElem.classList.contains(TaskItemView.HIDDEN_STATE_CLASS)) {
           moveBtnElem.classList.remove(TaskItemView.HIDDEN_STATE_CLASS);
         }
-      }, 100);
+      }, 150);
     } else {
       taskElem.classList.add(TaskItemView.EDIT_STATE_CLASS);
       if (removeBtnElem.classList.contains(TaskItemView.HIDDEN_STATE_CLASS)) {

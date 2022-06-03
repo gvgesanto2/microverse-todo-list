@@ -1,5 +1,5 @@
 import createHtmlElem from '../utils/createElem.utils.js';
-import View from './View.js';
+import View from './base/View.js';
 
 const TASK_BASE_ID = 'task';
 const TOGGLE_BTN_BASE_ID = 'toggle-btn';
