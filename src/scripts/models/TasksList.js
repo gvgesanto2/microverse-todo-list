@@ -37,6 +37,19 @@ export default class TasksList {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 
+  removeCompletedTasks() {
+    const completedTasks = [];
+    this.tasks = this.tasks.filter((task) => {
+      const filterExpression = task.isCompleted === false;
+      if (!filterExpression) {
+        completedTasks.push(task);
+      }
+      return filterExpression;
+    });
+    this.updateTasksIndexes();
+    return completedTasks;
+  }
+
   updateTasksIndexes() {
     this.tasks.forEach((task, index) => {
       task.index = index + 1;

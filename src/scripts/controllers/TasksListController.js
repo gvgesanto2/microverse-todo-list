@@ -1,9 +1,10 @@
 import TasksList from '../models/TasksList.js';
 import StorageService from '../services/StorageService.js';
+import ClearBtnViewManager from '../views/ClearBtnViewManager.js';
 import TasksListView from '../views/TasksListView.js';
 
 export default class TasksListController {
-  constructor(tasksListContainerId, tasksStorageKey) {
+  constructor(tasksListContainerId, clearBtnId, tasksStorageKey) {
     this.tasksListContainerId = tasksListContainerId;
     this.storageService = new StorageService(tasksStorageKey);
     this.tasksList = new TasksList(this.storageService.getData());
@@ -14,6 +15,9 @@ export default class TasksListController {
       handleRemoveTask: this.handleRemoveTask,
     };
     this.tasksListView = new TasksListView(this.tasksList.getTasks, eventHandlers);
+
+    const clearBtnViewManager = new ClearBtnViewManager(clearBtnId);
+    clearBtnViewManager.addEventHandler(this.handleClearCompletedTasks);
   }
 
   build = () => {
@@ -53,6 +57,14 @@ export default class TasksListController {
     this.tasksListView.removeTaskFromScreen(taskId);
     this.tasksList.removeTaskById(taskId);
     this.tasksList.updateTasksIndexes();
+    this.updateStorage();
+  }
+
+  handleClearCompletedTasks = () => {
+    const completedTasksRemoved = this.tasksList.removeCompletedTasks();
+    completedTasksRemoved.forEach((task) => {
+      this.tasksListView.removeTaskFromScreen(task.id);
+    });
     this.updateStorage();
   }
 }
