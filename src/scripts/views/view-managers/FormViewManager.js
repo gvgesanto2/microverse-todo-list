@@ -1,18 +1,15 @@
-export default class FormViewManager {
-  constructor(formId) {
-    this.id = formId;
-    this.form = document.getElementById(formId);
-  }
+import ViewManager from './ViewManager.js';
 
+export default class FormViewManager extends ViewManager {
   addEventHandler = (callback) => {
-    this.form.addEventListener('submit', callback);
+    this.htmlElem.addEventListener('submit', callback);
   };
 
-  getInputValueByName = (inputName) => this.form.elements[inputName].value;
+  getInputValueByName = (inputName) => this.htmlElem.elements[inputName].value;
 
   getInputElems = () => {
     const inputsArr = [];
-    Object.values(this.form.elements).forEach((formElem) => {
+    Object.values(this.htmlElem.elements).forEach((formElem) => {
       if (formElem.nodeName !== 'BUTTON' && !inputsArr.includes(formElem)) {
         inputsArr.push(formElem);
       }

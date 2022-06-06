@@ -1,8 +1,8 @@
-import AddTaskFormViewManager from '../views/AddTaskFormViewManager.js';
+import AddTaskFormViewManager from '../views/view-managers/AddTaskFormViewManager.js';
 
-export default class AddTaskFormController {
-  constructor(addTaskFormId, tasksListController) {
-    this.tasksListController = tasksListController;
+export default class AddTaskFormPresenter {
+  constructor(addTaskFormId, tasksListPresenter) {
+    this.tasksListPresenter = tasksListPresenter;
     this.addTaskFormViewManager = new AddTaskFormViewManager(addTaskFormId);
   }
 
@@ -10,7 +10,7 @@ export default class AddTaskFormController {
     this.addTaskFormViewManager.addEventHandler((event) => {
       event.preventDefault();
       const inputDescriptionValue = this.addTaskFormViewManager.getInputDescriptionValue();
-      this.tasksListController.addNewTask(inputDescriptionValue);
+      this.tasksListPresenter.addNewTask(inputDescriptionValue);
       this.addTaskFormViewManager.clearInputs();
     });
   };
