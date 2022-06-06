@@ -1,23 +1,19 @@
 import TasksList from '../models/TasksList.js';
 import StorageService from '../services/StorageService.js';
-import ClearBtnViewManager from '../views/ClearBtnViewManager.js';
-import TasksListView from '../views/TasksListView.js';
+import TasksListView from '../views/view-components/TasksListView.js';
 
-export default class TasksListController {
-  constructor(tasksListContainerId, clearBtnId, tasksStorageKey) {
+export default class TasksListPresenter {
+  constructor(tasksListContainerId, tasksStorageKey) {
     this.tasksListContainerId = tasksListContainerId;
     this.storageService = new StorageService(tasksStorageKey);
     this.tasksList = new TasksList(this.storageService.getData());
 
     const eventHandlers = {
-      handleToggleBtn: this.handleToggleIsCompleted,
-      handleEditTask: this.handleEditTask,
+      handleToggleTaskIsCompleted: this.handleToggleTaskIsCompleted,
+      handleEditTaskDescription: this.handleEditTaskDescription,
       handleRemoveTask: this.handleRemoveTask,
     };
     this.tasksListView = new TasksListView(this.tasksList.getTasks, eventHandlers);
-
-    const clearBtnViewManager = new ClearBtnViewManager(clearBtnId);
-    clearBtnViewManager.addEventHandler(this.handleClearCompletedTasks);
   }
 
   build = () => {
@@ -37,16 +33,16 @@ export default class TasksListController {
     this.updateStorage();
   };
 
-  handleToggleIsCompleted = (taskId) => {
+  handleToggleTaskIsCompleted = (taskId) => {
     const newIsCompleted = this.tasksList.toggleTaskIsCompleted(taskId);
-    this.tasksListView.updateTaskIsCompleted(taskId, newIsCompleted);
+    this.tasksListView.setTaskIsCompletedState(taskId, newIsCompleted);
     this.updateStorage();
   };
 
-  handleEditTask = (taskId, newDescription) => {
+  handleEditTaskDescription = (taskId, newDescription) => {
     if (newDescription) {
       this.tasksList.setTaskDescription(taskId, newDescription);
-      this.tasksListView.handleTaskEditingState(taskId);
+      this.tasksListView.setTaskEditingStateToDefault(taskId);
       this.updateStorage();
     } else {
       this.handleRemoveTask(taskId);

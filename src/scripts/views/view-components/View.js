@@ -9,6 +9,7 @@ export default class View {
     if (this.constructor === View) {
       throw new Error("Abstract classes can't be instantiated.");
     }
+    this.htmlElem = null;
   }
 
   createElem = () => {
@@ -16,7 +17,18 @@ export default class View {
   };
 
   render = (parentElemId) => {
-    const parentElem = document.getElementById(parentElemId);
-    parentElem.appendChild(this.createElem());
+    this.appendToParent(document.getElementById(parentElemId));
+  };
+
+  appendToParent = (parentElem) => {
+    if (!this.htmlElem) {
+      this.htmlElem = this.createElem();
+      parentElem.appendChild(this.htmlElem);
+    }
+  };
+
+  remove = () => {
+    this.htmlElem?.remove();
+    this.htmlElem = null;
   };
 }
