@@ -37,7 +37,10 @@ export default class TaskItemView extends View {
 
     // Creates a 'button' HTML element for the Toggle Button
     const toggleBtnView = new IconBtnView({
-      iconName: this.#getToggleBtnIconName(),
+      icon: {
+        name: this.#getToggleBtnIconName(),
+        size: 'md',
+      },
       extraClasses: 'o-task__toggle-btn',
       handleClick: () => {
         this.eventHandlers.handleToggleTaskIsCompleted(id);
@@ -52,12 +55,17 @@ export default class TaskItemView extends View {
         height: `${baseDescriptionHeight}rem`,
       },
     });
+    taskDescription.readOnly = true;
     taskDescription.maxLength = 255;
     taskDescription.ariaLabel = description;
     taskDescription.value = description;
-    taskDescription.addEventListener('focus', this.setEditingStateToActive);
+    taskDescription.addEventListener('focus', (event) => {
+      event.target.readOnly = false;
+      this.setEditingStateToActive();
+    });
     taskDescription.addEventListener('focusout', (event) => {
       event.preventDefault();
+      event.target.readOnly = true;
       this.eventHandlers.handleEditTaskDescription(id, event.target.value);
     });
 
@@ -69,7 +77,10 @@ export default class TaskItemView extends View {
 
     // Creates a 'button' HTML element for the Move Button
     const moveBtnView = new IconBtnView({
-      iconName: 'more-vertical',
+      icon: {
+        name: 'more-vertical',
+        size: 'md',
+      },
       moveCursor: true,
       handleClick: () => {},
     });
@@ -77,7 +88,10 @@ export default class TaskItemView extends View {
 
     // Creates a 'button' HTML element for the Remove Button
     const removeBtnView = new IconBtnView({
-      iconName: 'trash-2',
+      icon: {
+        name: 'trash-2',
+        size: 'md',
+      },
       extraClasses: `${HIDDEN_STATE_CLASS}`,
       handleClick: () => {
         this.eventHandlers.handleRemoveTask(id);
