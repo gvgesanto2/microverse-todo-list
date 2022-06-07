@@ -50,8 +50,8 @@ export default class TasksListPresenter {
   }
 
   handleRemoveTask = (taskId) => {
-    this.tasksListView.removeTaskFromScreen(taskId);
     this.tasksList.removeTaskById(taskId);
+    this.tasksListView.removeTaskFromScreen(taskId);
     this.tasksList.updateTasksIndexes();
     this.updateStorage();
   }

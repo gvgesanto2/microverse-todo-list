@@ -4,11 +4,17 @@ export default class StorageService {
   }
 
   storeData = (data) => {
-    localStorage.setItem(this.key, JSON.stringify(data));
+    this.storeStringifiedData(JSON.stringify(data));
   };
 
   getData = () => {
-    const dataStored = localStorage.getItem(this.key);
+    const dataStored = this.getStringifiedData();
     return dataStored ? JSON.parse(dataStored) : dataStored;
   };
+
+  storeStringifiedData = (dataStringified) => {
+    localStorage.setItem(this.key, dataStringified);
+  }
+
+  getStringifiedData = () => localStorage.getItem(this.key);
 }
