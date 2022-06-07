@@ -55,12 +55,17 @@ export default class TaskItemView extends View {
         height: `${baseDescriptionHeight}rem`,
       },
     });
+    taskDescription.readOnly = true;
     taskDescription.maxLength = 255;
     taskDescription.ariaLabel = description;
     taskDescription.value = description;
-    taskDescription.addEventListener('focus', this.setEditingStateToActive);
+    taskDescription.addEventListener('focus', (event) => {
+      event.target.readOnly = false;
+      this.setEditingStateToActive();
+    });
     taskDescription.addEventListener('focusout', (event) => {
       event.preventDefault();
+      event.target.readOnly = true;
       this.eventHandlers.handleEditTaskDescription(id, event.target.value);
     });
 
