@@ -37,7 +37,10 @@ export default class TaskItemView extends View {
 
     // Creates a 'button' HTML element for the Toggle Button
     const toggleBtnView = new IconBtnView({
-      iconName: this.#getToggleBtnIconName(),
+      icon: {
+        name: this.#getToggleBtnIconName(),
+        size: 'md',
+      },
       extraClasses: 'o-task__toggle-btn',
       handleClick: () => {
         this.eventHandlers.handleToggleTaskIsCompleted(id);
@@ -69,7 +72,10 @@ export default class TaskItemView extends View {
 
     // Creates a 'button' HTML element for the Move Button
     const moveBtnView = new IconBtnView({
-      iconName: 'more-vertical',
+      icon: {
+        name: 'more-vertical',
+        size: 'md',
+      },
       moveCursor: true,
       handleClick: () => {},
     });
@@ -77,7 +83,10 @@ export default class TaskItemView extends View {
 
     // Creates a 'button' HTML element for the Remove Button
     const removeBtnView = new IconBtnView({
-      iconName: 'trash-2',
+      icon: {
+        name: 'trash-2',
+        size: 'md',
+      },
       extraClasses: `${HIDDEN_STATE_CLASS}`,
       handleClick: () => {
         this.eventHandlers.handleRemoveTask(id);

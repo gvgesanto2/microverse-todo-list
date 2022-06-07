@@ -1,5 +1,6 @@
 .o-task {
   &--active {
+    color: rgba($black, 0.45);
     text-decoration: line-through;
 
     .o-task__toggle-btn {
