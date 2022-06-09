@@ -1,4 +1,4 @@
-import StorageService from '../services/StorageService.js';
+import StorageService from '../services/storage/StorageService.js';
 import TodoTitleViewManager from '../views/view-managers/TodoTitleViewManager.js';
 
 export default class TodoTitlePresenter {

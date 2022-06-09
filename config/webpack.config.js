@@ -29,7 +29,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
     ],
+  },
+  resolve: {
+    extensions: ['*', '.js'],
   },
   devServer: {
     static: './dist',

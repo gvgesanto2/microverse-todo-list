@@ -1,5 +1,5 @@
-import TasksList from '../models/TasksList.js';
-import StorageService from '../services/StorageService.js';
+import TasksList from '../models/tasks-list/TasksList.js';
+import StorageService from '../services/storage/StorageService.js';
 import TasksListView from '../views/view-components/TasksListView.js';
 
 export default class TasksListPresenter {
