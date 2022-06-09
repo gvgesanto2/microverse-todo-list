@@ -24,7 +24,7 @@ class ViewMock extends View {
 let view;
 let parentElem;
 
-describe('View.appendToParent Method', () => {
+describe('View.appendToParent() Method', () => {
   beforeEach(() => {
     view = new ViewMock();
     createDivContainerMock();
@@ -50,15 +50,14 @@ describe('View.appendToParent Method', () => {
   });
 });
 
-
-describe ('View.render Method', ()=>{
-  beforeEach(()=>{
+describe('View.render() Method', () => {
+  beforeEach(() => {
     view = new ViewMock();
     createDivContainerMock();
-  })
-  it('should gets parents id and appends element to the screen', ()=>{
+  });
+  it('should gets parents id and appends element to the screen', () => {
     view.render(DIV_CONTAINER_ID);
-    
+
     const childrenOfDiv = document.querySelectorAll(`.${CREATED_ELEM_CLASS}`);
     expect(childrenOfDiv).toHaveLength(1);
   });
@@ -67,7 +66,7 @@ describe ('View.render Method', ()=>{
 const NUM_CHILDREN = 4;
 let viewHtmlElem;
 
-describe('View.remove Method', () => {
+describe('View.remove() Method', () => {
   beforeEach(() => {
     view = new ViewMock();
     viewHtmlElem = view.createElem();
@@ -94,4 +93,3 @@ describe('View.remove Method', () => {
     expect(allDivChildren).not.toContain(viewHtmlElem);
   });
 });
-
