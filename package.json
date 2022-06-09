@@ -5,7 +5,8 @@
   "main": "prettier.config.js",
   "scripts": {
     "build": "webpack --mode production --config config/webpack.config.js",
-    "start": "webpack serve --mode development --config config/webpack.config.js --open"
+    "start": "webpack serve --mode development --config config/webpack.config.js --open",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -19,13 +20,18 @@
   },
   "homepage": "https://github.com/gvgesanto2/microverse-todo-list#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
     "hint": "^6.1.11",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
     "style-loader": "^3.3.1",

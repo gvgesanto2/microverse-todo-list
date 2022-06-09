@@ -1,4 +1,4 @@
-import TasksListPresenter from './presenters/TasksListPresenter.js';
+import TasksListPresenter from './presenters/tasks-list/TasksListPresenter.js';
 import AddTaskFormPresenter from './presenters/AddTaskFormPresenter.js';
 import ClearBtnPresenter from './presenters/ClearBtnPresenter.js';
 

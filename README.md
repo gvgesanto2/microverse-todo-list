@@ -55,6 +55,14 @@ $ npm run build
 
 Open the ``index.html`` file inside the ``dist/`` folder in your Web Browser.
 
+### Testing
+
+After installing all the project dependencies using the first command mentioned in the section ``install``, run this command in the root project directory:
+
+```console
+$ npm test
+```
+
 ## Authors
 
 👤 **Gabriel Santo**
