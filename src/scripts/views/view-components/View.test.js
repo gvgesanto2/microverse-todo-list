@@ -49,3 +49,49 @@ describe('View.appendToParent Method', () => {
     expect(allDivChildren).toHaveLength(1);
   });
 });
+
+
+describe ('View.render Method', ()=>{
+  beforeEach(()=>{
+    view = new ViewMock();
+    createDivContainerMock();
+  })
+  it('should gets parents id and appends element to the screen', ()=>{
+    view.render(DIV_CONTAINER_ID);
+    
+    const childrenOfDiv = document.querySelectorAll(`.${CREATED_ELEM_CLASS}`);
+    expect(childrenOfDiv).toHaveLength(1);
+  });
+});
+
+const NUM_CHILDREN = 4;
+let viewHtmlElem;
+
+describe('View.remove Method', () => {
+  beforeEach(() => {
+    view = new ViewMock();
+    viewHtmlElem = view.createElem();
+    Object.defineProperty(view, 'htmlElem', {
+      value: viewHtmlElem,
+    });
+    createDivContainerMock();
+    parentElem = document.getElementById(DIV_CONTAINER_ID);
+
+    for (let i = 0; i < NUM_CHILDREN - 1; i += 1) {
+      const otherViewObj = new ViewMock();
+      const otherViewHtmlElem = otherViewObj.createElem();
+      parentElem.appendChild(otherViewHtmlElem);
+    }
+
+    parentElem.appendChild(viewHtmlElem);
+  });
+
+  it('should be able to remove the right HTML element from the screen', () => {
+    view.remove();
+    const allDivChildren = document.querySelectorAll(`.${CREATED_ELEM_CLASS}`);
+
+    expect(allDivChildren).toHaveLength(NUM_CHILDREN - 1);
+    expect(allDivChildren).not.toContain(viewHtmlElem);
+  });
+});
+
