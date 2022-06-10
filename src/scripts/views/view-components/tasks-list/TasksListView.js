@@ -1,6 +1,6 @@
-import createHtmlElem from '../../utils/createElem.utils.js';
-import TaskItemView from './TaskItemView.js';
-import View from './View.js';
+import createHtmlElem from '../../../utils/createElem.utils.js';
+import TaskItemView from '../task-item/TaskItemView.js';
+import View from '../View.js';
 
 export default class TasksListView extends View {
   constructor(initialTasks, eventHandlersObj) {

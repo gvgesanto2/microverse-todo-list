@@ -2,6 +2,8 @@
  * @jest-environment jsdom
  */
 
+/* eslint-disable max-classes-per-file */
+
 import View from './View.js';
 
 const DIV_CONTAINER_ID = 'div-container';
@@ -18,11 +20,25 @@ class ViewMock extends View {
     const elem = document.createElement('div');
     elem.className = CREATED_ELEM_CLASS;
     return elem;
-  }
+  };
 }
+
+class ViewWithNoCreateElemImplementation extends View {}
 
 let view;
 let parentElem;
+
+describe('View.constructor() Method', () => {
+  it('should NOT be able to create an instance of the Abstract View class', () => {
+    expect(() => new View()).toThrow(Error);
+  });
+});
+
+describe('View.createElem() Method', () => {
+  it('should NOT be able to call an abstract method before implementing it in the subclass', () => {
+    expect(() => new ViewWithNoCreateElemImplementation().createElem()).toThrow(Error);
+  });
+});
 
 describe('View.appendToParent() Method', () => {
   beforeEach(() => {
@@ -38,7 +54,7 @@ describe('View.appendToParent() Method', () => {
     expect(allDivChildren).toHaveLength(1);
   });
 
-  it('should NOT be able to render itself again if it\'s already rendered on the screen', () => {
+  it("should NOT be able to render itself again if it's already rendered on the screen", () => {
     const NUM_TO_RENDER = 3;
 
     for (let i = 0; i < NUM_TO_RENDER; i += 1) {

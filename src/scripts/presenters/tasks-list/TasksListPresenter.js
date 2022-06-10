@@ -1,6 +1,6 @@
 import TasksList from '../../models/tasks-list/TasksList.js';
 import StorageService from '../../services/storage/StorageService.js';
-import TasksListView from '../../views/view-components/TasksListView.js';
+import TasksListView from '../../views/view-components/tasks-list/TasksListView.js';
 
 export default class TasksListPresenter {
   constructor(tasksListContainerId, tasksStorageKey) {
