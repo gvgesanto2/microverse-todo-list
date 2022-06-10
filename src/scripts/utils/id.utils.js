@@ -11,5 +11,3 @@ export const genNewIndexForElem = (elemsArray) => {
   }
   return 1;
 };
-
-export const getIdsFromElemsArray = (elemsArray) => elemsArray.map((elem) => elem.id);

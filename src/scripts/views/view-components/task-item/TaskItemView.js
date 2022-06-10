@@ -1,9 +1,9 @@
-import createHtmlElem from '../../utils/createElem.utils.js';
-import View from './View.js';
-import IconBtnView from './IconBtnView.js';
+import createHtmlElem from '../../../utils/createElem.utils.js';
+import View from '../View.js';
+import IconBtnView from '../icon-btn/IconBtnView.js';
 
-import { EDITING_STATE_CLASS, HIDDEN_STATE_CLASS } from '../../data/global-classes.data.js';
-import addHidingFeatureToView from '../decorators/hiding-feature.decorator.js';
+import { EDITING_STATE_CLASS, HIDDEN_STATE_CLASS } from '../../../data/global-classes.data.js';
+import addHidingFeatureToView from '../../decorators/hiding-feature.decorator.js';
 
 export default class TaskItemView extends View {
   static COMPLETED_STATE_CLASS = 'o-task--active';

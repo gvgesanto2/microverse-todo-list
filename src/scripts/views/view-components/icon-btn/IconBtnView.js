@@ -1,5 +1,5 @@
-import createHtmlElem from '../../utils/createElem.utils.js';
-import View from './View.js';
+import createHtmlElem from '../../../utils/createElem.utils.js';
+import View from '../View.js';
 
 export default class IconBtnView extends View {
   constructor({ icon, ...otherButtonProps }) {
